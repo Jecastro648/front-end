@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de contacto</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="spinner.css">
+</head>
+<body>
+
+    <form id="form" class="form">
+        <section class="form__register">
+            <h2 class="form__title">Registrate Ahora</h2>
+            <p class="form__paragraph">¿Has creado una cuenta previamente? <a href="#" class="form__link">Entra aquí</a></p>
+
+            <div class="form__inputs">
+                <div class="form__group">
+                    <input id="name" type="text" class="form__input" placeholder=" ">
+                    <label class="form__label" for="name">Nombre:</label>
+                    <span class="form__bar"></span>
+                </div>
+                <div class="form__group">
+                    <input id="email" type="email" class="form__input" placeholder=" ">
+                    <label class="form__label" for="email">Email:</label>
+                    <span class="form__bar"></span>
+                </div>
+                <div class="form__group">
+                    <input id="password" type="password" class="form__input" placeholder=" ">
+                    <label class="form__label" for="password">Password:</label>
+                    <span class="form__bar"></span>
+                </div>
+
+                <input type="submit" value="Registrate" class="form__submit opacity-50" disabled>
+
+                <div id="spinner" class="hidden">
+                    <div class="sk-chase">
+                        <div class="sk-chase-dot"></div>
+                        <div class="sk-chase-dot"></div>
+                        <div class="sk-chase-dot"></div>
+                        <div class="sk-chase-dot"></div>
+                        <div class="sk-chase-dot"></div>
+                        <div class="sk-chase-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form__picture"></section>
+    </form>
+    
+    <script src="app.js"></script>
+</body>
+</html>

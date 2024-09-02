@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    padding: 30px 0;
+    background: #f2f2f2;
+    display: flex;
+}
+
+/* Utilidades */
+.hidden {
+    display: none;
+}
+
+.opacity-50 {
+    opacity: 50%;
+}
+
+.alert {
+    color: red;
+    text-align: center;
+    margin-bottom: -10px; 
+    font-size: 14px;
+    padding: 10px 0  0;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.alertGreen {
+    color: green;
+    text-align: center;
+    margin-bottom: -10px; 
+    font-size: 14px;
+    padding: 10px 0  0;
+    font-weight: 700;
+}
+
+.form {
+    margin: auto;
+    display: grid;
+    width: 90%;
+    max-width: 1200px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 70px 1fr 70px;
+}
+
+.form__register {
+    background-color: white;
+    padding: 35px 30px;
+    grid-row: 2/3;
+    grid-column: 1/4;
+    z-index: 1;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgb(0 0 0 / 20%) ;
+    display: grid;
+    grid-template-rows: max-content max-content 1fr;
+    max-width: 400px;
+}
+
+
+
+.form__title {
+    font-size: 2.3rem;
+    margin-bottom: 8px;
+}
+
+.form__paragraph {
+    color: #969293;
+    line-height: 1.5;
+}
+
+.form__link {
+    color: #151212;
+}
+
+.form__picture {
+    background-image: url(fondo.jpg);
+    grid-column: 2/-1;
+    grid-row: 1/-1;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.form__group {
+    position: relative;
+}
+
+.form__inputs {
+    margin-top: 40px;
+    display: grid;
+    gap: 25px;
+}
+
+.form__input {
+    position: relative;
+    width: 100%;
+    padding: 10px 10px 10px 5px;
+    border: none;
+    border-bottom: 1px solid #49454567;
+    display: block;
+    outline: none;
+    font-family:'Poppins', sans-serif;
+    background: none;
+}
+
+/* Como sabemos a los elementos replay que son conocidos como elementos reemplazables (inputs[text,button, file, etc] e imagenes) no se les puede agregar un elemento con el pseudoelemento ::before o ::after por ello se utiliza un elemento span con la clase="form__bar" para crear una transición*/
+
+.form__input:focus ~ .form__bar {
+    transform: scale(1);
+}
+
+.form__bar { 
+    position: absolute;
+    border-bottom: 1px solid #2196f3;
+    display: block;
+    width: 100%;
+    top: 39.8px;
+    left: 0;
+    /* height: 100px; */
+    transform: scale(0);
+    transition: transform 1s;
+    transform-origin: bottom left;
+}
+
+.form__label {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    transform: scale(1);
+    pointer-events: none;
+    color: #49454567;
+    transition: .5s transform, .3s color;
+}
+
+.form__input:focus + .form__label,
+.form__input:not(:placeholder-shown) + .form__label {
+    color: #2196f3;
+    transform: scale(0.7) translateY(-34px);
+    transform-origin: top left;
+    
+}
+
+.form__submit {
+    margin-top: 30px;
+    padding: .8em 1em;
+    background-color: #151212 ;
+    color: white;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    border-radius: 6px;
+
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .form__register {
+        grid-column: 1/7;
+    }
+    .form__title {
+        font-size: 2rem;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+    .form__register {
+        grid-column: 1/-1;
+        width: 90%;
+        place-self: center;
+    }
+
+    .form__picture {
+        grid-column: 1/-1;
+    }
+}
